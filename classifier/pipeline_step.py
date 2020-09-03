@@ -118,13 +118,13 @@ def run_lr(
     click.echo('Selected model')
     click.echo('%s' %results.loc[results['mean'].idxmax()])
     bestmodel= results.loc[results['mean'].idxmax()]['estimator']
-    joblib.dump(bestmodel, 'lrmodel.pkl') 
-    lrmodel = joblib.load('lrmodel.pkl')
+    joblib.dump(bestmodel, 'model.joblib') 
+    lrmodel = joblib.load('model.joblib')
     click.echo('bestmodel.score   %s    :' %bestmodel.score(X_train,y_train))
-    key = "uploaded/lrmodel.pkl"
-    click.echo('uploading  lrmodel.pkl...')
-    s3.upload_file(Bucket=s3_bucket, Key=key, Filename="lrmodel.pkl")
-    response = s3.list_objects(Bucket=s3_bucket, Prefix="uploaded/", MaxKeys=max_keys)
+    key = "uploaded/lrmodel/model.joblib"
+    click.echo('uploading  model.joblib...')
+    s3.upload_file(Bucket=s3_bucket, Key=key, Filename="model.joblib")
+    response = s3.list_objects(Bucket=s3_bucket, Prefix="uploaded/lrmodel/", MaxKeys=max_keys)
     click.echo('Model names found       :')   
     toptenfiles = response["Contents"][:10]
     for file in toptenfiles:
@@ -157,13 +157,13 @@ def run_rf(
     click.echo('Selected model')
     click.echo('%s' %results.loc[results['mean'].idxmax()])
     bestmodel= results.loc[results['mean'].idxmax()]['estimator']
-    joblib.dump(bestmodel, 'rfmodel.pkl') 
-    rfmodel = joblib.load('rfmodel.pkl')
+    joblib.dump(bestmodel, 'model.joblib') 
+    rfmodel = joblib.load('model.joblib')
     click.echo('bestmodel.score   %s    :' %bestmodel.score(X_train,y_train))
-    key = "uploaded/rfmodel.pkl"
-    click.echo('uploading  rfmodel.pkl...')
-    s3.upload_file(Bucket=s3_bucket, Key=key, Filename="rfmodel.pkl")
-    response = s3.list_objects(Bucket=s3_bucket, Prefix="uploaded/", MaxKeys=max_keys)
+    key = "uploaded/rfmodel/model.joblib"
+    click.echo('uploading  model.joblib...')
+    s3.upload_file(Bucket=s3_bucket, Key=key, Filename="model.joblib")
+    response = s3.list_objects(Bucket=s3_bucket, Prefix="uploaded/rfmodel/", MaxKeys=max_keys)
     click.echo('Model names found       :')   
     toptenfiles = response["Contents"][:10]
     for file in toptenfiles:
@@ -197,13 +197,13 @@ def run_gb(
     click.echo('Selected model')
     click.echo('%s' %results.loc[results['mean'].idxmax()])
     bestmodel= results.loc[results['mean'].idxmax()]['estimator']
-    joblib.dump(bestmodel, 'gbmodel.pkl') 
-    gbmodel = joblib.load('gbmodel.pkl')
+    joblib.dump(bestmodel, 'model.joblib') 
+    gbmodel = joblib.load('model.joblib')
     click.echo('bestmodel.score   %s    :' %bestmodel.score(X_train,y_train))
-    key = "uploaded/gbmodel.pkl"
-    click.echo('uploading  gbmodel.pkl...')
-    s3.upload_file(Bucket=s3_bucket, Key=key, Filename="gbmodel.pkl")
-    response = s3.list_objects(Bucket=s3_bucket, Prefix="uploaded/", MaxKeys=max_keys)
+    key = "uploaded/gbmodel/model.joblib"
+    click.echo('uploading  model.joblib...')
+    s3.upload_file(Bucket=s3_bucket, Key=key, Filename="model.joblib")
+    response = s3.list_objects(Bucket=s3_bucket, Prefix="uploaded/gbmodel", MaxKeys=max_keys)
     click.echo('Model names found       :')   
     toptenfiles = response["Contents"][:10]
     for file in toptenfiles:
@@ -237,13 +237,13 @@ def run_gmm(
     click.echo('Selected model')
     click.echo('%s' %results.loc[results['mean'].idxmax()])
     bestmodel= results.loc[results['mean'].idxmax()]['estimator']
-    joblib.dump(bestmodel, 'gmmmodel.pkl') 
-    gmmmodel = joblib.load('gmmmodel.pkl')
+    joblib.dump(bestmodel, 'model.joblib') 
+    gmmmodel = joblib.load('model.joblib')
     click.echo('bestmodel.score   %s    :' %bestmodel.score(X_train,y_train))
-    key = "uploaded/gmmmodel.pkl"
-    click.echo('uploading  gmmmodel.pkl...')
-    s3.upload_file(Bucket=s3_bucket, Key=key, Filename="gmmmodel.pkl")
-    response = s3.list_objects(Bucket=s3_bucket, Prefix="uploaded/", MaxKeys=max_keys)
+    key = "uploaded/gmmmodel/model.joblib"
+    click.echo('uploading  model.joblib...')
+    s3.upload_file(Bucket=s3_bucket, Key=key, Filename="model.joblib")
+    response = s3.list_objects(Bucket=s3_bucket, Prefix="uploaded/gmmmodel/", MaxKeys=max_keys)
     click.echo('Model names found       :')   
     toptenfiles = response["Contents"][:10]
     for file in toptenfiles:
@@ -278,13 +278,13 @@ def run_mlp(
     click.echo('Selected model')
     click.echo('%s' %results.loc[results['mean'].idxmax()])
     bestmodel= results.loc[results['mean'].idxmax()]['estimator']
-    joblib.dump(bestmodel, 'mlpmodel.pkl') 
-    mlpmodel = joblib.load('mlpmodel.pkl')
+    joblib.dump(bestmodel, 'model.joblib') 
+    mlpmodel = joblib.load('model.joblib')
     click.echo('bestmodel.score   %s    :' %bestmodel.score(X_train,y_train))
-    key = "uploaded/mlpmodel.pkl"
-    click.echo('uploading  mlpmodel.pkl...')
-    s3.upload_file(Bucket=s3_bucket, Key=key, Filename="mlpmodel.pkl")
-    response = s3.list_objects(Bucket=s3_bucket, Prefix="uploaded/", MaxKeys=max_keys)
+    key = "uploaded/mlpmodel/model.joblib"
+    click.echo('uploading  model.joblib...')
+    s3.upload_file(Bucket=s3_bucket, Key=key, Filename="model.joblib")
+    response = s3.list_objects(Bucket=s3_bucket, Prefix="uploaded/mlpmodel/", MaxKeys=max_keys)
     click.echo('Model names found       :')   
     toptenfiles = response["Contents"][:10]
     for file in toptenfiles:
@@ -318,13 +318,13 @@ def run_dt(
     click.echo('Selected model')
     click.echo('%s' %results.loc[results['mean'].idxmax()])
     bestmodel= results.loc[results['mean'].idxmax()]['estimator']
-    joblib.dump(bestmodel, 'dtmodel.pkl') 
-    dtmodel = joblib.load('dtmodel.pkl')
+    joblib.dump(bestmodel, 'model.joblib') 
+    dtmodel = joblib.load('model.joblib')
     click.echo('bestmodel.score   %s    :' %bestmodel.score(X_train,y_train))
-    key = "uploaded/dtmodel.pkl"
-    click.echo('uploading  dtmodel.pkl...')
-    s3.upload_file(Bucket=s3_bucket, Key=key, Filename="dtmodel.pkl")
-    response = s3.list_objects(Bucket=s3_bucket, Prefix="uploaded/", MaxKeys=max_keys)
+    key = "uploaded/dtmodel/model.joblib"
+    click.echo('uploading  model.joblib...')
+    s3.upload_file(Bucket=s3_bucket, Key=key, Filename="model.joblib")
+    response = s3.list_objects(Bucket=s3_bucket, Prefix="uploaded/dtmodel/", MaxKeys=max_keys)
     click.echo('Model names found       :')   
     toptenfiles = response["Contents"][:10]
     for file in toptenfiles:
